@@ -1,0 +1,49 @@
+ <div class="studytable">
+        <mat-form-field>
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Type to filter">
+        </mat-form-field>
+
+        <div class="tabledata text-center">
+            <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 text-center">
+                <ng-container matColumnDef="cntid">
+                    <th mat-header-cell *matHeaderCellDef class="text-center">Cnt Id</th>
+                    <td mat-cell *matCellDef="let user">{{ user.cnt_id }}</td>
+                </ng-container>
+                <ng-container matColumnDef="wh_mo_id">
+                    <th mat-header-cell *matHeaderCellDef class="text-center">wh_mo_id</th>
+                    <td mat-cell *matCellDef="let user">{{ user.wh_mo_id }}</td>
+                </ng-container>
+                <ng-container matColumnDef="au_ex_id">
+                    <th mat-header-cell *matHeaderCellDef class="text-center">au_ex_id</th>
+                    <td mat-cell *matCellDef="let user">{{ user.au_ex_id }}</td>
+                </ng-container>
+                <ng-container matColumnDef="wh_flag">
+                    <th mat-header-cell *matHeaderCellDef class="text-center">wh_flag</th>
+                    <td mat-cell *matCellDef="let user"><ng-container
+                            *ngIf="user.wh_flag == null">-</ng-container><ng-container>{{ user.wh_flag }}</ng-container>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="Status">
+                    <th mat-header-cell *matHeaderCellDef class="text-center">Status</th>
+                    <td mat-cell *matCellDef="let user"
+                        [ngClass]="user.Status === 'Terminated' ? 'bg-success-subtle' : 'bg-danger-subtle'">{{
+                        user.Status }}</td>
+                </ng-container>
+                <ng-container matColumnDef="Survey_Number">
+                    <th mat-header-cell *matHeaderCellDef class="text-center">Survey_Number</th>
+                    <td mat-cell *matCellDef="let user">
+                        {{ user.Survey_Number ? user.Survey_Number : '-' }}
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="panel">
+                    <th mat-header-cell *matHeaderCellDef class="text-center">panel</th>
+                    <td mat-cell *matCellDef="let user">{{ user.panel }}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+        </div>
+    </div>

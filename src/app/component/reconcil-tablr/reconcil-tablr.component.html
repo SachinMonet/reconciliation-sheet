@@ -1,0 +1,43 @@
+<div class="container-fluid pt-3">
+  <div class="study">
+    <form class="user-form" [formGroup]="formdata">
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>STUDY ID</mat-label>
+        <input matInput placeholder="Enter" formControlName="Studyid" type="number" required />
+      </mat-form-field>
+      <input type="file" class="file-input" #fileUpload (change)="onFileSelected($event)" />
+      <div class="file-upload d-flex align-items-center gap-2">
+        <span class="file-status">
+          {{ fileName ? '✔️ File uploaded.' : '📁 No file uploaded yet.' }}
+        </span>
+        <button mat-mini-fab color="primary" [disabled]="!formdata.valid" (click)="fileUpload.click()">
+          <mat-icon>attach_file</mat-icon>
+        </button>
+      </div>
+      <button mat-raised-button color="primary" class="submit-btn" [disabled]="submitbutton" (click)="submit()">
+        Submit
+      </button>
+    </form>
+  </div>
+  <div class="tabledata">
+    <ng-container>
+      <div *ngIf="loader" class="loader-video">
+        <img src="https://phoneky.co.uk/thumbs/screensavers/down/anime/naruto_lqf5t1x1.gif" alt="Loading..." class="loader" />
+      </div>
+      <div *ngIf="errorlorder" class="loader-video">
+        <div class="error-loader">❌ ERROR {{ errordata.code }}</div>
+      </div>
+      <ng-container *ngIf="!errorlorder && !loader">
+        <div class="w-100">
+          <app-panelcost
+            [allData]="allData"
+            [response_ids]="response_ids"
+            [survey_number]="survey_number"
+            *ngIf="allData"
+            [loader]="loader">
+          </app-panelcost>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>

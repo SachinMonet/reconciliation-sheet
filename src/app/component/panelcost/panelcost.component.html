@@ -1,0 +1,65 @@
+<div class="container-fluid p-md-4">
+    <div class="row justify-content-end align-items-end gap-4 pt-5">
+        <button mat-raised-button class="primary " (click)="successToExcel()">
+            Export Reconciliation Sheet
+        </button>
+        <button mat-raised-button class="primary " (click)="exportToExcel()">
+            Export Cost of Completes Sheet
+        </button>
+    </div>
+<div class="vtable"> 
+    <table class="mt-3" #myTable>
+        <tr>
+            <ng-container *ngFor="let head of header; let i = index">
+                <th [attr.rowSpan]="i == 0 ? allData.length + 2 : i == 1 ? 2 : ''" [attr.colSpan]="i > 1 ? 2: '' "
+                    [ngStyle]="{'background':i <= 1 ? '#5E2B99': head == 'success' ?  '#6aa84f' : head == 'bad case' ? '#cc0000' : head=='overQuota' ? '#d7605e': head == 'total' ?'#ffff00': '' , 'color': i <= 1 ? 'aliceblue' :'' }">
+                    {{head}}</th>
+            </ng-container>
+        </tr>
+        <tr>
+            <ng-container *ngFor="let sub of subheader">
+                <td style="background-color:#5E2B99 ; color: aliceblue;"> {{sub}}</td>
+            </ng-container>
+        </tr>
+        <ng-container *ngFor="let row of allData">
+            <tr>
+                <td>{{row.cnt_name}} | {{row.cnt_id}}</td>
+                <td>{{row.success.samples}}</td>
+                <td>{{row.success.cost}}</td>
+                <td>{{row.bad_case.samples}}</td>
+                <td>{{row.bad_case.cost}}</td>
+                <td>{{row.overQuota.samples}}</td>
+                <td>{{row.overQuota.cost}}</td>
+                <td>{{row.total.samples}}</td>
+                <td>{{row.total.cost}}</td>
+            </tr>
+        </ng-container>
+        <tr>
+            <td style="border: none; padding: 0.5rem;" colspan="9"></td>
+        </tr>
+        <tr>
+            <td style="border: none; padding: 0.5rem;" colspan="9"></td>
+        </tr>
+    </table>
+</div>
+    <table class="mt-3" #myTables style="display: none;">
+        <tr>
+            <ng-container *ngFor="let head of successnum; let i = index">
+                <th>{{head}}</th>
+            </ng-container>
+
+        </tr>
+        <ng-container *ngFor="let row of response_ids">
+            <tr>
+                <td>{{survey_number[0]}}</td>
+                <td>{{row}}</td>
+            </tr>
+        </ng-container>
+        <tr>
+            <td style="border: none; padding: 0.5rem;" colspan="9"></td>
+        </tr>
+        <tr>
+            <td style="border: none; padding: 0.5rem;" colspan="9"></td>
+        </tr>
+    </table>
+</div>

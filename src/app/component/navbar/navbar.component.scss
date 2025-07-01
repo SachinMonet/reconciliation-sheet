@@ -1,0 +1,17 @@
+.navbar-brand {
+    img {
+        max-width: 190px;
+        max-height: 43px;
+    }
+
+    ;
+}
+
+.navbar {
+    max-height: 7vh;
+    min-height: 7vh;
+    background-color: #5E2B99;
+    @media screen and (max-width: 750px) {
+         max-height: 12vh;
+    }
+}
