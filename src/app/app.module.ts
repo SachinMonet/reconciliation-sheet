@@ -19,14 +19,17 @@ import { MatTableModule } from '@angular/material/table';
 import { PanelcostComponent } from './component/panelcost/panelcost.component';
 import { RecontableComponent } from './component/recontable/recontable.component';
 import { NgOptimizedImage } from '@angular/common';
-
+import { LoginComponent } from './component/login/login.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [
     AppComponent,
     ReconcilTablrComponent,
     NavbarComponent,
     PanelcostComponent,
-    RecontableComponent
+    RecontableComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,9 @@ import { NgOptimizedImage } from '@angular/common';
     MatPaginatorModule,
     MatSortModule,
     HttpClientModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    MatSnackBarModule,
+    MatProgressSpinnerModule
 
   ],
   providers: [

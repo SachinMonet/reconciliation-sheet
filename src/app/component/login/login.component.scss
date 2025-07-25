@@ -1,0 +1,108 @@
+// @import '../../../vars';
+@mixin flex-row-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin flex-row-around{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+@mixin flex-row-between{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login-img {
+  img {
+    width: 100%;
+  }
+}
+
+.forget {
+  display: flex;
+  justify-content: flex-end;
+
+  P {
+    color: #0B66C2;
+  }
+}
+
+.login-heading {
+  h4 {
+    color: #5E2B99;
+
+    font-family: Roboto;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 137.188%;
+    /* 30.181px */
+  }
+}
+
+.form-label {
+  color: #5F5F5F;
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 137.188%;
+  /* 27.438px */
+}
+
+.btn-area {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+
+  p {
+    margin: 0;
+  }
+}
+
+.error {
+  font-size: 12px;
+  margin-bottom: 0px;
+  margin-top: 2px;
+}
+
+
+.job-btn {
+  background: #277DB9;
+  @include flex-row-center;
+  column-gap: 10px;
+  border-radius: 2px;
+
+  ::ng-deep.mdc-circular-progress__circle-clipper .mdc-circular-progress__indeterminate-circle-graphic {
+    stroke: white !important;
+  }
+}
+
+.input-group-text {
+  background-color: transparent;
+}
+
+.hire-eq {
+  img {
+    width: 100%;
+  }
+}
+
+// @media screen and (max-width: 1024px) {
+//   .mob {
+//     height: unset !important;
+//   }
+
+//   .hire-eq {
+//     padding: 2rem;
+
+//     img {
+//       width: 100%;
+//     }
+//   }
+
+
+// }
