@@ -49,9 +49,9 @@
             </ng-container>
 
         </tr>
-        <ng-container *ngFor="let row of response_ids">
+        <ng-container *ngFor="let row of response_ids let i = index">
             <tr>
-                <td>{{survey_number[0]}}</td>
+                <td>{{survey_number[i]}}</td>
                 <td>{{row}}</td>
             </tr>
         </ng-container>
